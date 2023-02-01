@@ -1,6 +1,8 @@
 const express = require('express')
 
 const FruitsController = require('../controller/fruits.controller')
+const {FruitValidate,FruitIdValidate,updateFruitValidate} = require("../middleware/fruit.middleware")
+
 let router = express.Router()
 
 /**
@@ -20,8 +22,8 @@ let router = express.Router()
  *           type: string
  *           description: The fruit color 
  *       example:       
-            name: apple
-            color: white
+ *           name: apple
+ *           color: white
  */
 
 /**
@@ -48,7 +50,7 @@ let router = express.Router()
  *
  */ 
 
-router.post('/fruits', FruitsController.POST)
+router.post('/fruits',FruitValidate, FruitsController.POST)
 
 // fruits list
 /** 
@@ -99,7 +101,7 @@ router.get('/fruits',FruitsController.GET)
 *         description: The fruit was not found
 */
 
-router.get('/fruit/:id', FruitsController.GET_ONE_FRUIT)
+router.get('/fruit/:id',FruitIdValidate, FruitsController.GET_ONE_FRUIT)
 
 
 
@@ -125,7 +127,7 @@ router.get('/fruit/:id', FruitsController.GET_ONE_FRUIT)
 *         description: The fruit was not found
 */
 
-router.delete('/fruit/:id', FruitsController.DELETE)
+router.delete('/fruit/:id',FruitIdValidate,  FruitsController.DELETE)
 
 
 //update one fruit
@@ -160,7 +162,7 @@ router.delete('/fruit/:id', FruitsController.DELETE)
 *      500:
 *        description: Some error happened
 */
-router.put('/fruit/:id', FruitsController.UPDATE_FRUIT)
+router.put('/fruit/:id',updateFruitValidate, FruitsController.UPDATE_FRUIT)
 
       
       

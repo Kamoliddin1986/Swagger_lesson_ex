@@ -1,6 +1,7 @@
 const express = require('express')
 
 const AnimalsController = require('../controller/animals.controller')
+const {AnimalValidate,AnimalIdValidate,updateAnimalValidate} = require("../middleware/animal.middleware")
 
 
 let router = express.Router()
@@ -51,7 +52,7 @@ let router = express.Router()
  *         description: Some server error
  *
  */    
-router.post('/animals',AnimalsController.POST)
+router.post('/animals',AnimalValidate,AnimalsController.POST)
 
 
 // animals list
@@ -101,7 +102,7 @@ router.post('/animals',AnimalsController.POST)
 *       404:
 *         description: The animal was not found
 */
-router.get('/animal/:id', AnimalsController.ONE_ANIMAL)
+router.get('/animal/:id',AnimalIdValidate, AnimalsController.ONE_ANIMAL)
 
 
 // delete one animal
@@ -126,7 +127,7 @@ router.get('/animal/:id', AnimalsController.ONE_ANIMAL)
 *         description: The animal was not found
 */
 
-router.delete('/animal/:id',AnimalsController.DELETE)
+router.delete('/animal/:id',AnimalIdValidate,AnimalsController.DELETE)
 
 
 //update one animal
@@ -161,7 +162,7 @@ router.delete('/animal/:id',AnimalsController.DELETE)
 *      500:
 *        description: Some error happened
 */
-router.put('/animal/:id',AnimalsController.PUT)
+router.put('/animal/:id', updateAnimalValidate, AnimalsController.PUT)
 
  
 

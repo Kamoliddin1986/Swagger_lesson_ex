@@ -11,6 +11,14 @@ let userValidation = (userInfo) => {
     return schema.validate(userInfo)
 }
 
+let getOneUserValidation = (id) => {
+    const schema = Joi.object({
+        id: Joi.string().required()
+    })
+    return schema.validate(id)
+}
+
 module.exports = {
-    userValidation
+    userValidation,
+    getOneUserValidation
 }

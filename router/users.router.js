@@ -1,6 +1,6 @@
 const express = require('express')
 const UsersController = require('../controller/users.controller')
-
+const {userValidate} = require("../middleware/user.middleware")
 
 let router = express.Router()
 /**
@@ -28,11 +28,10 @@ let router = express.Router()
  *           type: string
  *           description: passwordni takrorlang
  *       example:       
-            username: NAME
-            email: NAME@gamail.com
-            password: "123456"
-            confirm_password: "123456"
-    
+ *           username: NAME
+ *           email: NAME@gamail.com
+ *           password: '123456'
+ *           confirm_password: '123456'   
  */
 
 /**
@@ -58,7 +57,7 @@ let router = express.Router()
  *         description: Some server error
  *
  */    
-router.post('/user', UsersController.POST)
+router.post('/user',userValidate, UsersController.POST)
 
 
 // users list

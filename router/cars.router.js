@@ -24,9 +24,9 @@ let router = express.Router()
  *           type: string
  *           description: auto brand
  *       example:    
- *      "name": "spark"
- *      "price": "1"
- *      "brand": "Chevrolet"
+ *          name: spark
+ *          price: 1
+ *          brand: Chevrolet
     
  */
 

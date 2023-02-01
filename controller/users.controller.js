@@ -1,8 +1,8 @@
 const {uuid} = require('uuidv4')
 const {read_file, write_file } = require('../fs/fs_api')
-const Cars = require('./cars.controller')
 
-let users = read_file('users.json')
+
+
 const Users = {
     GET: (_,res) => {
         let users = read_file('users.json')
@@ -11,6 +11,7 @@ const Users = {
     POST: async(req, res) => {
         const nwUser = req.body
         let users = read_file('users.json')
+
         users.push({
             id: uuid(),
             username: nwUser.username,

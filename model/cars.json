@@ -1,11 +1,5 @@
 [
     {
-        "id": "c0f67079-27c7-4381-a7db-f92c8c204d42",
-        "name": "412",
-        "price": "1",
-        "brand": "maskvich"
-    },
-    {
         "id": "b1cbbaf9-7454-49e1-8a81-dc3c8ec32833",
         "name": "spark0",
         "price": "1",
@@ -13,9 +7,9 @@
     },
     {
         "id": "b7685c28-808b-445b-b570-8f68175719a0",
-        "name": "tiko",
-        "price": "1",
-        "brand": "daewoo"
+        "name": "uAZ",
+        "price": 22,
+        "brand": "Chevrolet"
     },
     {
         "id": "4f614fba-eb0e-4d30-9019-fb8108e4404e",
@@ -28,5 +22,11 @@
         "name": "Rav4",
         "price": "2",
         "brand": "toyota"
+    },
+    {
+        "id": "895bfd98-e918-4757-82fa-c821e57cf6a6",
+        "name": "spark23",
+        "price": 12343,
+        "brand": "Chevrolet"
     }
 ]

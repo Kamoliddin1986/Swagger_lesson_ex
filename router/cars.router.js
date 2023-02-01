@@ -1,5 +1,6 @@
 const express = require('express')
 const CarsController = require('../controller/cars.controller')
+const {carValidate,CarIdValidate,updateCarValidate} = require("../middleware/car.middleware")
 let router = express.Router()
 
 
@@ -54,7 +55,7 @@ let router = express.Router()
  *
  */    
 
-router.post('/car',CarsController.POST)
+router.post('/car',carValidate, CarsController.POST)
 
 // get one car
 /** 
@@ -81,7 +82,7 @@ router.post('/car',CarsController.POST)
 *         description: The car was not found
 */
 
-router.get('/car/:id',CarsController.GET_CAR_BY_ID)
+router.get('/car/:id',CarIdValidate, CarsController.GET_CAR_BY_ID)
 
 
 // cars list
@@ -129,7 +130,7 @@ router.get('/cars',CarsController.GET)
 *         description: The car was not found
 */
 
-router.delete('/car/:id',CarsController.DELETE)
+router.delete('/car/:id',CarIdValidate,CarsController.DELETE)
 
 
 //update one car
@@ -165,7 +166,7 @@ router.delete('/car/:id',CarsController.DELETE)
 *        description: Some error happened
 */
 
-router.put('/car/:id',CarsController.PUT)
+router.put('/car/:id',updateCarValidate,CarsController.PUT)
    
 
 

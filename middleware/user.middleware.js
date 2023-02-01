@@ -1,4 +1,4 @@
-const {userValidation, getOneUserValidation} = require("../validation/user.validation")
+const {userValidation, UserIdValidation,updateUserValidation} = require("../validation/user.validation")
 
 
 let userValidate = function(req,res,next){
@@ -12,9 +12,17 @@ let userValidate = function(req,res,next){
     next()
 }
 
-let getOneUserValidate = function(req,res,next){
+let UserIdValidate = function(req,res,next){
 
-    const {error} = getOneUserValidation({id: req.params.id})
+    const {error} = UserIdValidation({id: req.params.id})
+    if(error){
+        return res.status(400).json({msg: error.details[0].message})
+    }
+    next()
+}
+
+let updateUserValidate = function(req,res,next) {
+    const {error} = updateUserValidation({...req.body,id: req.params.id})
     if(error){
         return res.status(400).json({msg: error.details[0].message})
     }
@@ -23,5 +31,6 @@ let getOneUserValidate = function(req,res,next){
 
 module.exports = {
     userValidate,
-    getOneUserValidate
+    UserIdValidate,
+    updateUserValidate
 }

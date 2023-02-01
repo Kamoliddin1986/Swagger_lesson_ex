@@ -1,6 +1,6 @@
 const express = require('express')
 const UsersController = require('../controller/users.controller')
-const {userValidate,getOneUserValidate} = require("../middleware/user.middleware")
+const {userValidate,UserIdValidate,updateUserValidate} = require("../middleware/user.middleware")
 
 let router = express.Router()
 /**
@@ -107,7 +107,7 @@ router.post('/user',userValidate, UsersController.POST)
 *       404:
 *         description: The user was not found
 */
-router.get('/user/:id',getOneUserValidate, UsersController.ONE_USER)
+router.get('/user/:id',UserIdValidate, UsersController.ONE_USER)
 
 
 // delete one user
@@ -132,7 +132,7 @@ router.get('/user/:id',getOneUserValidate, UsersController.ONE_USER)
 *         description: The user was not found
 */
 
-router.delete('/user/:id',UsersController.DELETE)
+router.delete('/user/:id',UserIdValidate, UsersController.DELETE)
 
 
 //update one user
@@ -168,7 +168,7 @@ router.delete('/user/:id',UsersController.DELETE)
 *        description: Some error happened
 */
 
-router.put('/user/:id', UsersController.PUT)
+router.put('/user/:id',updateUserValidate, UsersController.PUT)
  
 
 module.exports = router

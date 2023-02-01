@@ -31,14 +31,8 @@
     },
     {
         "id": "249f139d-3daa-412b-8c05-3e4f7ff06065",
-        "username": "NAME",
+        "username": "UpNAME",
         "email": "NAME@gamail.com",
-        "password": "123456"
-    },
-    {
-        "id": "fa49a9d5-f399-49d9-ad05-80060e57ef77",
-        "username": "NAME2",
-        "email": "NAME2@gamail.com",
-        "password": "123456"
+        "password": "1er23456"
     }
 ]
